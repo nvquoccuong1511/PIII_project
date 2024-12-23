@@ -1,0 +1,103 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <None Remove="NewFolder1\**" />
+    <Page Remove="NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\Dessert\apple_pie.jpg" />
+    <None Remove="Images\Dessert\Cheesecake.jpg" />
+    <None Remove="Images\Dessert\chocolate_cake.jpg" />
+    <None Remove="Images\Dessert\Crème_Brûlée.jpg" />
+    <None Remove="Images\Dessert\Ice_Cream.jpg" />
+    <None Remove="Images\Dessert\Tiramisu.jpg" />
+    <None Remove="Images\Main\BBQ_Ribs.jpg" />
+    <None Remove="Images\Main\Beef_Burger.jpg" />
+    <None Remove="Images\Main\Chicken_Alfredo.jpg" />
+    <None Remove="Images\Main\Grilled_Salmon.jpg" />
+    <None Remove="Images\Main\Lamb_Chops.jpg" />
+    <None Remove="Images\Main\Ribeye_Steak.jpg" />
+    <None Remove="Images\Main\Vegetable_Lasagna.jpg" />
+    <None Remove="Images\Starter\Bruschetta.jpg" />
+    <None Remove="Images\Starter\Buffalo_Wings.jpg" />
+    <None Remove="Images\Starter\Calamari_Rings.jpg" />
+    <None Remove="Images\Starter\Garlic_Bread.jpg" />
+    <None Remove="Images\Starter\Prawn_Cocktail.jpg" />
+    <None Remove="Images\Starter\Soup_of_the_Day.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Dessert\apple_pie.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Dessert\Cheesecake.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Dessert\chocolate_cake.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Dessert\Crème_Brûlée.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Dessert\Ice_Cream.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Dessert\Tiramisu.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\Beef_Burger.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\Chicken_Alfredo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\Grilled_Salmon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\Lamb_Chops.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\Ribeye_Steak.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\Vegetable_Lasagna.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Starter\Bruschetta.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Starter\Buffalo_Wings.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Starter\Calamari_Rings.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Starter\Garlic_Bread.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Starter\Prawn_Cocktail.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Starter\Soup_of_the_Day.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Main\BBQ_Ribs.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

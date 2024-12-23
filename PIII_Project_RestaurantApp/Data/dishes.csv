@@ -1,0 +1,22 @@
+Id,Name,Price,Category,IsAvailable,ImagePath
+1,Garlic Bread,5.99,Starter,True,Starter/Garlic_Bread.jpg
+2,Buffalo Wingsssssswfsdfdsf,2,Dessert,True,Starter/chicken_fried.jpg
+3,Calamari Rings,12.99,Starter,True,Starter/chicken_fried.jpg
+4,Bruschetta,8.99,Starter,True,Starter/chicken_fried.jpg
+5,Soup of the Day,6.99,Starter,True,Starter/Soup_of_the_Day.jpg
+6,Prawn Cocktail,10.99,Starter,True,Starter/chicken_fried.jpg
+7,Grilled Salmon,255,Main,True,Main/chicken_fried.jpg
+8,Ribeye Steak,29.99,Main,True,Main/Ribeye_Steak.jpg
+9,Lamb Chops,28.99,Main,True,Main/Lamb_Chops.jpg
+10,Chicken Alfredo,18.99,Main,True,Main/Chicken_Alfredo.jpg
+11,BBQ Ribs,26.99,Main,True,Main/chicken_fried.jpg
+12,Vegetable Lasagna,16.99,Main,True,Main/Vegetable_Lasagna.jpg
+13,Beef Burger,15.99,Main,True,Main/chicken_fried.jpg
+14,Fish and Chips,17.99,Main,True,Main/Fish_and_Chips.jpg
+15,Chocolate Cake,8.99,Dessert,True,Dessert/chocolate_cake.jpg
+16,Cheesecake,7.99,Dessert,True,Dessert/Cheesecake.jpg
+17,Apple Pie,6.99,Dessert,True,Dessert/apple_pie.jpg
+18,Tiramisu,8.99,Dessert,True,Dessert/Tiramisu.jpg
+19,Ice Cream Sundae,5.99,Dessert,True,Dessert/Ice_Cream.jpg
+21,chickenfried,12.92,Starter,True,chicken_fried.jpg
+22,Spicy chicken fried,11,Starter,True,chicken_fried.jpg

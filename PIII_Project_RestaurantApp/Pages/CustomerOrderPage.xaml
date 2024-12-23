@@ -1,0 +1,76 @@
+﻿<Page x:Class="PIII_Project_RestaurantApp.Pages.CustomerOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PIII_Project_RestaurantApp.Pages"
+      mc:Ignorable="d" 
+      Background="wheat"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CustomerOrderpage">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Order details -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Order Details" 
+                     FontSize="24" 
+                     FontWeight="Bold" 
+                     Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Order ID: " FontWeight="Bold"/>
+                <TextBlock x:Name="OrderIdText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Date: " FontWeight="Bold"/>
+                <TextBlock x:Name="OrderDateText"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Status: " FontWeight="Bold"/>
+                <TextBlock x:Name="StatusText"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Order list -->
+        <TextBlock Grid.Row="1" 
+                   Text="Order Items" 
+                   FontSize="18" 
+                   FontWeight="Bold" 
+                   Margin="0,0,0,10"/>
+
+        <ListView x:Name="OrderItemsListView" 
+          Grid.Row="2" 
+          Margin="0,0,0,20">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Dish" 
+                          Width="200" 
+                          DisplayMemberBinding="{Binding DishName}"/>
+                    <GridViewColumn Header="Price" 
+                          Width="100" 
+                          DisplayMemberBinding="{Binding Price, StringFormat=C}"/>
+                    <GridViewColumn Header="Quantity" 
+                          Width="100" 
+                          DisplayMemberBinding="{Binding Quantity}"/>
+                    <GridViewColumn Header="Subtotal" 
+                          Width="100" 
+                          DisplayMemberBinding="{Binding SubTotal, StringFormat=C}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!-- Total Spent-->
+        <StackPanel Grid.Row="3" Orientation="Vertical">
+            <TextBlock x:Name="TotalText" 
+                      FontSize="18" 
+                      FontWeight="Bold" 
+                      TextAlignment="Right"
+                      Margin="0,0,0,10"/>
+        </StackPanel>
+    </Grid>
+</Page>

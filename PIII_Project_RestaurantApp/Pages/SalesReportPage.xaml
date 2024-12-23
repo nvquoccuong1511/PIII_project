@@ -1,0 +1,63 @@
+﻿<Page x:Class="PIII_Project_RestaurantApp.Pages.SalesReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PIII_Project_RestaurantApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Sales Repor">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Report Controls -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20">
+            <DatePicker x:Name="dateStart" Width="120" Margin="0,0,10,0"/>
+            <DatePicker x:Name="dateEnd" Width="120" Margin="0,0,10,0"/>
+            <Button Content="Generate Report" Width="120" Click="btnGenerateReport_Clicked"/>
+        </StackPanel>
+
+        <!-- Summary Statistics -->
+        <UniformGrid Grid.Row="1" Rows="1" Margin="0,0,0,20">
+            <Border Background="#E3F2FD" Margin="5" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Total Sales" FontWeight="Bold"/>
+                    <TextBlock x:Name="txtTotalSales" Text="$0.00"/>
+                </StackPanel>
+            </Border>
+            <Border Background="#E8F5E9" Margin="5" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Total Orders" FontWeight="Bold"/>
+                    <TextBlock x:Name="txtTotalOrders" Text="0"/>
+                </StackPanel>
+            </Border>
+            <Border Background="#FFF3E0" Margin="5" Padding="10">
+                <StackPanel>
+                    <TextBlock Text="Average Order Value" FontWeight="Bold"/>
+                    <TextBlock x:Name="txtAverageOrder" Text="$0.00"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+        <!-- Detailed Report -->
+        <DataGrid Grid.Row="2" 
+              AutoGenerateColumns="False" 
+              x:Name="salesGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" 
+                  Binding="{Binding Date, StringFormat=d}"/>
+                <DataGridTextColumn Header="Total Sales" 
+                  Binding="{Binding Sales, StringFormat=C}"/>
+                <DataGridTextColumn Header="Orders" 
+                  Binding="{Binding Orders}"/>
+                <DataGridTextColumn Header="Average Order" 
+                  Binding="{Binding Average, StringFormat=C}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

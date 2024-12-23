@@ -1,0 +1,69 @@
+﻿<Page x:Class="PIII_Project_RestaurantApp.Pages.OrderManagement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PIII_Project_RestaurantApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderManagement">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Order Filters -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20">
+            <DatePicker x:Name="datePicker" 
+            Width="120" 
+            Margin="0,0,5,0"
+            SelectedDateChanged="datePicker_SelectedDateChanged"/>
+            <Button x:Name="btnPreviousDay" 
+        Content="←" 
+        Width="30" 
+        Height="25"
+        Margin="0,0,5,0"
+        Click="btnPreviousDay_Clicked"/>
+            <Button x:Name="btnToday"
+        Content="Today" 
+        Width="60" 
+        Height="25"
+        Margin="0,0,10,0"
+        Click="btnToday_Clicked"/>
+            <Button x:Name="btnNextDay" 
+        Content="→" 
+        Width="30" 
+        Height="25"
+        Margin="0,0,10,0"
+        Click="btnNextDay_Clicked"/>
+
+            <ComboBox x:Name="cmbStatus" 
+          Width="120" 
+          Margin="0,0,10,0"
+                  SelectionChanged="cmbStatus_SelectionChanged">
+                <ComboBoxItem Content="All Orders"/>
+                <ComboBoxItem Content="Pending"/>
+                <ComboBoxItem Content="Completed"/>
+            </ComboBox>
+
+
+        </StackPanel>
+
+        <!-- Orders List -->
+        <DataGrid Grid.Row="1" 
+      x:Name="ordersGrid"
+      AutoGenerateColumns="False" 
+      IsReadOnly="True"
+      MouseDoubleClick="ordersGrid_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Order ID" Binding="{Binding OrderId}" Width="80"/>
+                <DataGridTextColumn Header="Customer" Binding="{Binding Customer.Name}" Width="150"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat=C}" Width="100"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding OrderDate, StringFormat=dd/MM/yyyy HH:mm}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

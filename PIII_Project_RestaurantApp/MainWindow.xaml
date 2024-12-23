@@ -1,0 +1,100 @@
+﻿<Window x:Class="PIII_Project_RestaurantApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PIII_Project_RestaurantApp"
+        mc:Ignorable="d"
+        Background="wheat"
+        Title="MainWindow" Height="600" Width="400"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Top row for manager button -->
+            <RowDefinition Height="*"/>
+            <!-- Main content part -->
+        </Grid.RowDefinitions>
+
+        <!-- Manager Login button -->
+        <Border Grid.Row="0"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Top"
+        Background="White"
+        CornerRadius="20"
+        Margin="20">
+            <Button Content="Manager Login" 
+            Height="35"
+            Width="120"
+            Background="Transparent"
+            Foreground="Black"
+            BorderThickness="0"
+            FontSize="14"
+            FontWeight="SemiBold"
+            Click="btnOwner_Clicked"/>
+        </Border>
+
+        <!-- layout -->
+        <Grid Grid.Row="1" Margin="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title -->
+            <TextBlock Grid.Row="0"
+                  Text="Get Food Delivery From Restaurants" 
+                  FontSize="36"
+                  FontWeight="Bold"
+                  HorizontalAlignment="Left"
+                  Margin="0,0,0,30"/>
+
+            <!-- Input name -->
+            <Border Grid.Row="1" 
+               Background="White" 
+               BorderBrush="#DDDDDD" 
+               BorderThickness="1" 
+               CornerRadius="25"
+               Margin="0,0,0,20">
+                <Grid>
+                    <TextBox x:Name="txtUsername"
+                        Padding="20"
+                        FontSize="18"
+                        BorderThickness="0"
+                        Background="Transparent"/>
+                    <TextBlock IsHitTestVisible="False"
+                          Text="Enter your name"
+                          VerticalAlignment="Center"
+                          Margin="20,0,0,0"
+                          Foreground="Gray">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Text, ElementName=txtUsername}" Value="">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Border>
+
+            <!-- Go to Customer menu -->
+            <Border Grid.Row="2" 
+               CornerRadius="25">
+                <Button Content="Find Favourite Foods" 
+                   Click="btnCustomer_Clicked"
+                   Height="60"
+                   Background="#FF4500"
+                   Foreground="White"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   BorderThickness="0"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
