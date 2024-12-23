@@ -75,7 +75,7 @@ namespace PIII_Project_RestaurantApp.Pages
                         {
                             try
                             {
-                                var imagePath = $"Images/{dish.ImagePath}";
+                                var imagePath = $"/Images/{dish.ImagePath}";
                                 Debug.WriteLine($"Loading image from: {imagePath}");
                                 image.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
                             }
@@ -84,7 +84,17 @@ namespace PIII_Project_RestaurantApp.Pages
                                 Debug.WriteLine($"Error loading image for {dish.Name}: {ex.Message}");
                             }
                         }
-                        // ...
+                        var nameText = stackPanel.Children[1] as TextBlock;
+                        if (nameText != null)
+                        {
+                            nameText.Text = dish.Name;
+                        }
+
+                        var priceText = stackPanel.Children[2] as TextBlock;
+                        if (priceText != null)
+                        {
+                            priceText.Text = $"${dish.Price:F2}";
+                        }
                     }
                 }
             }
@@ -93,7 +103,7 @@ namespace PIII_Project_RestaurantApp.Pages
                 Debug.WriteLine($"Error in DisplayDesserts: {ex.Message}");
                 MessageBox.Show($"Error: {ex.Message}");
             }
-        } 
+        }
         private StackPanel GetStackPanelAt(int row, int col)
         {
             foreach (var child in DishesGrid.Children)

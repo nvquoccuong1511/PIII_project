@@ -47,7 +47,8 @@
         <!-- Detailed Report -->
         <DataGrid Grid.Row="2" 
               AutoGenerateColumns="False" 
-              x:Name="salesGrid">
+              x:Name="salesGrid"
+              IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Date" 
                   Binding="{Binding Date, StringFormat=d}"/>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -554,7 +555,7 @@ namespace PIII_Project_RestaurantApp.Models
                         decimal.Parse(values[3]),  // Price
                         int.Parse(values[4])       // Quantity
                     );
-
+                    // if order is not here, then create a list of order item for that order
                     if (!orderItems.ContainsKey(orderId))
                     {
                         orderItems[orderId] = new List<OrderItem>();
@@ -563,13 +564,13 @@ namespace PIII_Project_RestaurantApp.Models
                 }
             }
 
-            // Now read orders
+            // read orders
             List<Order> loadedOrders = new List<Order>();
             string[] dateFormats = new string[]
             {
-                "yyyy-MM-dd h:mm:ss tt",  // This matches your format: "2024-12-15 4:43:44 AM"
-                "yyyy-MM-dd hh:mm:ss tt", // Also include this for double-digit hours
-                "yyyy-MM-dd H:mm:ss"      // 24-hour format as backup
+                "yyyy-MM-dd h:mm:ss tt",  // format are using
+                "yyyy-MM-dd hh:mm:ss tt", 
+                "yyyy-MM-dd H:mm:ss"     
             };
             using (StreamReader reader = new StreamReader(_ordersFilePath))
             {
@@ -581,10 +582,12 @@ namespace PIII_Project_RestaurantApp.Models
                     {
                         string[] values = reader.ReadLine().Split(',');
                         int orderId = int.Parse(values[0]);
-                        int customerId = int.Parse(values[1]);
-
-                        Customer customer = customers.Find(c => c.UserId == customerId);
-                        if (customer == null) continue;
+                        string customerName = values[2];
+                        Customer customer = customers.Find(c => c.Name == customerName);
+                        if (customer == null) 
+                        {
+                            customer = new Customer(customerName);
+                        }
 
                         Order order = new Order(customer, orderItems[orderId]);
                         order.OrderId = orderId;
@@ -599,7 +602,8 @@ namespace PIII_Project_RestaurantApp.Models
                         }
                         else
                         {
-                            MessageBox.Show($"Invalid date format in order {orderId}: {values[3]}");
+                            //MessageBox.Show($"Invalid date format in order {orderId}: {values[3]}");
+                            Debug.WriteLine($"Invalid date format in order {orderId}: {values[3]}");
                             continue;
                         }
 

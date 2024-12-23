@@ -13,10 +13,9 @@ Id,Name,Price,Category,IsAvailable,ImagePath
 12,Vegetable Lasagna,16.99,Main,True,Main/Vegetable_Lasagna.jpg
 13,Beef Burger,15.99,Main,True,Main/chicken_fried.jpg
 14,Fish and Chips,17.99,Main,True,Main/Fish_and_Chips.jpg
-15,Chocolate Cake,8.99,Dessert,True,Dessert/chocolate_cake.jpg
+15,Chocolate Cake,8.99,Dessert,True,Dessert/chicken_fried.jpg
 16,Cheesecake,7.99,Dessert,True,Dessert/Cheesecake.jpg
 17,Apple Pie,6.99,Dessert,True,Dessert/apple_pie.jpg
 18,Tiramisu,8.99,Dessert,True,Dessert/Tiramisu.jpg
 19,Ice Cream Sundae,5.99,Dessert,True,Dessert/Ice_Cream.jpg
-21,chickenfried,12.92,Starter,True,chicken_fried.jpg
 22,Spicy chicken fried,11,Starter,True,chicken_fried.jpg

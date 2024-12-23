@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PIII_Project_RestaurantApp.Models;
 using System.IO;
+using PIII_Project_RestaurantApp.Views;
 
 namespace PIII_Project_RestaurantApp.Pages
 {
@@ -32,8 +33,10 @@ namespace PIII_Project_RestaurantApp.Pages
         private void LoadCartItems()
         {
             var items = _currentCustomer.GetCartItems();
-            CartItemsListView.ItemsSource = null;  // Clear original data source
-            CartItemsListView.ItemsSource = items; // Set up new data source
+            // Clear original data source
+            CartItemsListView.ItemsSource = null;
+            // Set up new data source
+            CartItemsListView.ItemsSource = items;
             UpdateTotal();
         }
         private void UpdateTotal()
@@ -79,75 +82,17 @@ namespace PIII_Project_RestaurantApp.Pages
                     return;
                 }
 
-                var order = new Order(_currentCustomer,_currentCustomer.GetCartItems());
-                // save order in CSV file
-                SaveOrderToCSV(order); 
-
-                MessageBox.Show("Order placed successfully!");
-                // Navigation to order Page
-                NavigationService?.Navigate(new CustomerOrderPage(_currentCustomer, order));
-                _currentCustomer.ClearCart();
-                LoadCartItems();
+                var confirmWindow = new OrderConfirmationWindow(_currentCustomer, _currentCustomer.GetCartTotal());
+                if (confirmWindow.ShowDialog() == true)
+                {
+                    MessageBox.Show("Order placed successfully!");
+                    NavigationService?.Navigate(new CustomerOrderPage(_currentCustomer, confirmWindow.CreatedOrder));
+                    _currentCustomer.ClearCart();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error placing order: {ex.Message}");
-            }
-        }
-        private void SaveOrderToCSV(Order order)
-        {
-            try
-            {
-                string filePath = @"..\..\..\Data\orders.csv";
-                string directoryPath = System.IO.Path.GetDirectoryName(filePath);
-
-                // check file path
-                if (!Directory.Exists(directoryPath))
-                {
-                    Directory.CreateDirectory(directoryPath);
-                }
-
-                // check file permission
-                if (File.Exists(filePath))
-                {
-                    File.SetAttributes(filePath, FileAttributes.Normal);
-                }
-
-                // Gets an existing order ID
-                List<int> existingIds = new List<int>();
-                if (File.Exists(filePath))
-                {
-                    // Skip header line
-                    var lines = File.ReadAllLines(filePath).Skip(1); 
-                    foreach (var line in lines)
-                    {
-                        var id = int.Parse(line.Split(',')[0]);
-                        existingIds.Add(id);
-                    }
-                }
-
-                // Set the ID of the new order
-                order.OrderId = existingIds.Count > 0 ? existingIds.Max() + 1 : 1;
-
-                // Prepare new order data
-                string orderLine = $"{order.OrderId},{order.Status},{order.OrderDate:yyyy-MM-dd h:mm:ss tt},{order.Total:F2}";
-
-                // 如果文件不存在，If the file does not exist, write the header line first
-                if (!File.Exists(filePath))
-                {
-                    File.WriteAllText(filePath, "OrderId,Status,OrderDate,Total\n");
-                }
-
-                // Additional new order
-                File.AppendAllText(filePath, orderLine + "\n");
-            }
-            catch (UnauthorizedAccessException)
-            {
-                MessageBox.Show("No permission to write to file. Please check file permissions.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving order to CSV: {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
     }

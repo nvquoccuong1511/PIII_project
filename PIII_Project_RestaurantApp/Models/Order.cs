@@ -70,6 +70,12 @@ namespace PIII_Project_RestaurantApp.Models
         {
             Customer = customer ?? throw new ArgumentNullException(nameof(customer));
         }
+        public Order(int orderId, DateTime orderDate, OrderStatus status, decimal total)
+        {
+            OrderId = orderId;
+            OrderDate = orderDate;
+            Status = status;
+        }
         public Order(Customer customer, List<OrderItem> orderItems) : this(customer)
         {
             if (orderItems != null)

@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PIII_Project_RestaurantApp.Models;
+using System.IO;
+
 
 namespace PIII_Project_RestaurantApp.Pages
 {
@@ -33,19 +35,32 @@ namespace PIII_Project_RestaurantApp.Pages
 
         private void LoadOrderHistory()
         {
-            try
+            string filePath = @"..\..\..\Data\orders.csv";
+            if (!File.Exists(filePath))
             {
-                Debug.WriteLine($"Loading orders, count: {_currentCustomer.OrderHistory.Count}");
-                OrdersListView.ItemsSource = _currentCustomer.OrderHistory;
-                foreach (var order in _currentCustomer.OrderHistory)
+                Debug.WriteLine("Orders file not found");
+                return;
+            }
+
+            var orders = new List<OrderDisplay>();
+            var lines = File.ReadAllLines(filePath).Skip(1);
+
+            foreach (var line in lines)
+            {
+                var fields = line.Split(',');
+                if (fields[2] == _currentCustomer.Name.ToLower())
                 {
-                    Debug.WriteLine($"OrderId: {order.OrderId}, OrderDate: {order.OrderDate}, Status: {order.Status}, TotalPrice: {order.Total}");
+                    orders.Add(new OrderDisplay
+                    {
+                        OrderId = int.Parse(fields[0]),
+                        OrderDate = DateTime.Parse(fields[3]),
+                        Status = fields[4],
+                        Total = decimal.Parse(fields[5])
+                    });
                 }
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error loading orders: {ex.Message}");
-            }
+            OrdersListView.ItemsSource = orders;
         }
+
     }
 }
