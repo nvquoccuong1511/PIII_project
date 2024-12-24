@@ -22,6 +22,12 @@ namespace PIII_Project_RestaurantApp.Views
     public partial class EditDishWindow : Window
     {
         private readonly Owner _owner;
+        private string _imgFileName = "";
+        /// <summary>
+        /// this path is change after selecting new image
+        /// </summary>
+        private string _newImgPath = "";
+
         private Dish _dish;
         public EditDishWindow(Dish dish, Owner owner)
         {
@@ -97,11 +103,12 @@ namespace PIII_Project_RestaurantApp.Views
                 if (dialog.ShowDialog() == true)
                 {
                     // Get file name
-                    string fileName = dialog.FileName.Substring(dialog.FileName.LastIndexOf('\\') + 1);
+                    _imgFileName = dialog.FileName.Substring(dialog.FileName.LastIndexOf('\\') + 1);
+                    DishCategory selectedCategory = (DishCategory)cmbCategory.SelectedItem;
 
                     // Save relative to category folder
-                    string newRelativePath = $"{_dish.Category}/{fileName}";
-                    string fullPath = $@"..\..\..\Images\{newRelativePath}";
+                    _newImgPath = $"{selectedCategory}/{_imgFileName}";// temporary, will be saved until save btn is clicked
+                    string fullPath = $@"..\..\..\Images\{_newImgPath}";
 
                     // Copy the file
                     File.Copy(dialog.FileName, fullPath, true);
@@ -116,8 +123,7 @@ namespace PIII_Project_RestaurantApp.Views
                     // Update image in UI
                     imgDish.Source = image;
 
-                    // Update dish with relative path
-                    _owner.UpdateDishImage(newRelativePath, _dish);
+                    // Update dish with relative path and save 
                 }
             }
             catch (Exception ex)
@@ -151,10 +157,40 @@ namespace PIII_Project_RestaurantApp.Views
 
                 string name = txtName.Text;
                 bool isAvailable = chkAvailable.IsChecked ?? false;
-                DishCategory category = (DishCategory)cmbCategory.SelectedItem;
-                string imagePath = _dish.ImagePath; // Use the existing image path
+                DishCategory selectedCategory = (DishCategory)cmbCategory.SelectedItem;
 
-                _owner.UpdateDish(_dish.Id, name, price, isAvailable, category, imagePath);
+                // if dish path == _newimg path -> save
+                // if dish path != new path
+                //      if dish category != selected category -> change category folder name
+                //      else same category dish path = new path
+                string newImagePath;
+                if(_dish.ImagePath == _newImgPath)
+                {
+                    // Keep the current image path
+                    newImagePath = _newImgPath;
+                }
+                else
+                {
+                    // If category changed
+                    if (_dish.Category != selectedCategory)
+                    {
+                        string currentFileName = System.IO.Path.GetFileName(_dish.ImagePath);
+                        // new path in the new category
+                        newImagePath = $"{selectedCategory}/{currentFileName}";
+
+                        // Copy the image to the new category folder
+                        string sourceImagePath = $@"..\..\..\Images\{_dish.Category}\{currentFileName}";
+                        string destImagePath = $@"..\..\..\Images\{selectedCategory}\{currentFileName}";
+
+                        File.Copy(sourceImagePath, destImagePath, true);
+                    }
+                    else
+                    {
+                        // No changes to image
+                        newImagePath = _newImgPath;
+                    }
+                }
+                _owner.UpdateDish(_dish.Id, name, price, isAvailable, selectedCategory, newImagePath);
 
                 MessageBox.Show("Dish updated successfully!", "Success",
                     MessageBoxButton.OK, MessageBoxImage.Information);

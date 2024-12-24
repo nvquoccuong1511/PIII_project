@@ -25,6 +25,7 @@
     <None Remove="Images\Main\BBQ_Ribs.jpg" />
     <None Remove="Images\Main\Beef_Burger.jpg" />
     <None Remove="Images\Main\Chicken_Alfredo.jpg" />
+    <None Remove="Images\Main\girl-doll1.jpg" />
     <None Remove="Images\Main\Grilled_Salmon.jpg" />
     <None Remove="Images\Main\Lamb_Chops.jpg" />
     <None Remove="Images\Main\Ribeye_Steak.jpg" />
@@ -60,6 +61,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Main\Chicken_Alfredo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Main\girl-doll1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Main\Grilled_Salmon.jpg">

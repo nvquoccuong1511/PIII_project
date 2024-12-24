@@ -45,12 +45,13 @@ namespace PIII_Project_RestaurantApp.Views
             {
                 string fileName = System.IO.Path.GetFileName(dialog.FileName);
                 string destinationPath = System.IO.Path.Combine(@"..\..\..\Images", fileName);
-
+                // Get the selected category
+                DishCategory selectedCategory = (DishCategory)cmbCategory.SelectedItem;
                 try
                 {
                     System.IO.File.Copy(dialog.FileName, destinationPath, true);
-                    _imagePath = fileName;
-
+                    // Set the image path with category
+                    _imagePath = $"{selectedCategory}/{fileName}";
                     BitmapImage image = new BitmapImage();
                     image.BeginInit();
                     image.CacheOption = BitmapCacheOption.OnLoad;

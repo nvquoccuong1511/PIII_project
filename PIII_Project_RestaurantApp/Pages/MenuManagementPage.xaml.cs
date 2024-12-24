@@ -66,11 +66,14 @@ namespace PIII_Project_RestaurantApp.Pages
 
         private void btnAddDish_Clicked(object sender, RoutedEventArgs e)
         {
+            
             AddNewDishWindow addNewDishWindow = new AddNewDishWindow(_owner);
             if (addNewDishWindow.ShowDialog() == true)
             {
+
                 LoadDishes();
             }
+            
         }
 
         private void btnEditDish_Clicked(object sender, RoutedEventArgs e)

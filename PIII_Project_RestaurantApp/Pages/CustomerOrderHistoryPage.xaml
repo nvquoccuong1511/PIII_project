@@ -22,7 +22,7 @@
                     <GridViewColumn Header="Order ID" DisplayMemberBinding="{Binding OrderId}" Width="100" />
                     <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}" Width="150" />
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding OrderDate}" Width="200" />
-                    <GridViewColumn Header="Total" DisplayMemberBinding="{Binding TotalPrice}" Width="100" />
+                    <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Total}" Width="100" />
                 </GridView>
             </ListView.View>
         </ListView>

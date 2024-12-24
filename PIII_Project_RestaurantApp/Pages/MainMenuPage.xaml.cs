@@ -34,7 +34,7 @@ namespace PIII_Project_RestaurantApp.Pages
             _currentCustomer = customer;
             _desserts = new List<Dish>();
             LoadDishes();
-            DisplayDesserts();
+            DisplayMenu();
         }
         private void LoadDishes()
         {
@@ -59,7 +59,7 @@ namespace PIII_Project_RestaurantApp.Pages
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
-        private void DisplayDesserts()
+        private void DisplayMenu()
         {
             try
             {
@@ -81,6 +81,7 @@ namespace PIII_Project_RestaurantApp.Pages
                                 var imagePath = $"/Images/{dish.ImagePath}";
                                 Debug.WriteLine($"Loading image from: {imagePath}");
                                 image.Source = new BitmapImage(new Uri(imagePath, UriKind.Relative));
+                                //MessageBox.Show($"Attempting to load image from: {imagePath}"); // for debugging
                             }
                             catch (Exception ex)
                             {

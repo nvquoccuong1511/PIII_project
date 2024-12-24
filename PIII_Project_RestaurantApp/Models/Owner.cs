@@ -198,86 +198,78 @@ namespace PIII_Project_RestaurantApp.Models
                 dish.UpdateCategory(category);
                 dish.UpdateImage(imagePath);
                 SaveDishesToCsv(_dishes);
+                // Reload dishes to ensure e
+                Dishes = LoadDishesFromCsv();
             }
         }
-        //public void UpdateDish(int dishId, decimal price, bool isAvailable)
+
+        //public bool UpdateDishName(Dish dish, string newName)
         //{
-        //    var dish = _dishes.Find(d => d.Id == dishId);
         //    if (dish != null)
         //    {
-        //        dish.UpdatePrice(price);
-        //        dish.UpdateAvailability(isAvailable);
-        //        SaveDishesToCsv(_dishes);
+        //        try
+        //        {
+        //            dish.UpdateName(newName);
+        //            SaveDishesToCsv(_dishes);
+        //            return true;
+        //        }
+        //        catch (ArgumentException)
+        //        {
+        //            return false;
+        //        }
         //    }
+        //    return false;
         //}
-
-        public bool UpdateDishName(Dish dish, string newName)
-        {
-            if (dish != null)
-            {
-                try
-                {
-                    dish.UpdateName(newName);
-                    SaveDishesToCsv(_dishes);
-                    return true;
-                }
-                catch (ArgumentException)
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-        public bool UpdateDishPrice(decimal newPrice, Dish dish)
-        {
-            if (dish != null)
-            {
-                try
-                {
-                    dish.UpdatePrice(newPrice);
-                    SaveDishesToCsv(_dishes); // save after updating
-                    return true;
-                }
-                catch (ArgumentException)
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-        public void UpdateDishImage(string newImagePath, Dish dish)
-        {
-            dish.UpdateImage(newImagePath);
-            SaveDishesToCsv(_dishes);  // Save after updating
-            _dishes = LoadDishesFromCsv();
-        }
-        public bool UpdateDishCategory(Dish dish, DishCategory newCategory)
-        {
-            if (dish != null)
-            {
-                try
-                {
-                    dish.UpdateCategory(newCategory);
-                    SaveDishesToCsv(_dishes);
-                    return true;
-                }
-                catch (ArgumentException)
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
-        public bool UpdateDishAvailability(bool isAvailable, Dish dish)
-        {
-            if (dish != null)
-            {
-                dish.UpdateAvailability(isAvailable);
-                SaveDishesToCsv(_dishes);  // Save after updating
-                return true;
-            }
-            return false;
-        }
+        //public bool UpdateDishPrice(decimal newPrice, Dish dish)
+        //{
+        //    if (dish != null)
+        //    {
+        //        try
+        //        {
+        //            dish.UpdatePrice(newPrice);
+        //            SaveDishesToCsv(_dishes); // save after updating
+        //            return true;
+        //        }
+        //        catch (ArgumentException)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return false;
+        //}
+        //public void UpdateDishImage(string newImagePath, Dish dish)
+        //{
+        //    dish.UpdateImage(newImagePath);
+        //    SaveDishesToCsv(_dishes);  // Save after updating
+        //    //_dishes = LoadDishesFromCsv();
+        //}
+        //public bool UpdateDishCategory(Dish dish, DishCategory newCategory)
+        //{
+        //    if (dish != null)
+        //    {
+        //        try
+        //        {
+        //            dish.UpdateCategory(newCategory);
+        //            SaveDishesToCsv(_dishes);
+        //            return true;
+        //        }
+        //        catch (ArgumentException)
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //    return false;
+        //}
+        //public bool UpdateDishAvailability(bool isAvailable, Dish dish)
+        //{
+        //    if (dish != null)
+        //    {
+        //        dish.UpdateAvailability(isAvailable);
+        //        SaveDishesToCsv(_dishes);  // Save after updating
+        //        return true;
+        //    }
+        //    return false;
+        //}
         #endregion
         #region Generate data
         public static List<Customer> GenerateSampleCustomers()

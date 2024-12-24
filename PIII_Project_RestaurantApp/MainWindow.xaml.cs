@@ -48,6 +48,12 @@ namespace PIII_Project_RestaurantApp
             this.Close();
         }
 
-
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnCustomer_Clicked(sender, e);
+            }
+        }
     }
 }

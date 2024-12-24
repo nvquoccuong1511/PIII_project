@@ -3,3 +3,6 @@ OrderId,DishId,DishName,Price,Quantity
 1,0,Calamari Rings,12.99,1
 1,0,Bruschetta,8.99,1
 1,0,Ribeye Steak,29.99,1
+2,0,Vegetable Lasagna,16.99,1
+2,0,Lamb Chops,28.99,1
+2,0,Grilled Salmon,24.99,1
