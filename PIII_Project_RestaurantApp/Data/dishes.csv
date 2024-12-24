@@ -1,24 +1,21 @@
 Id,Name,Price,Category,IsAvailable,ImagePath
-1,Garlic Bread,5.99,Dessert,True,Dessert/girl-doll.jpg
+1,Garlic Bread,5.99,Starter,True,Starter/Garlic_Bread.jpg
 2,Buffalo Wings,11.99,Starter,True,Starter/Buffalo_Wings.jpg
 3,Calamari Rings,12.99,Starter,True,Starter/Calamari_Rings.jpg
-4,Bruschetta,8.99,Starter,True,Starter/Bruschetta.jpg
+4,Bruschetta sweet,7,Starter,True,Starter/squid-game-2.PNG
 5,Soup of the Day,6.99,Starter,True,Starter/Soup_of_the_Day.jpg
 6,Prawn Cocktail,10.99,Starter,True,Starter/Prawn_Cocktail.jpg
 7,Grilled Salmon,24.99,Main,True,Main/Grilled_Salmon.jpg
 8,Ribeye Steak,29.99,Main,True,Main/Ribeye_Steak.jpg
 9,Lamb Chops,28.99,Main,True,Main/Lamb_Chops.jpg
 10,Chicken Alfredo,18.99,Main,True,Main/Chicken_Alfredo.jpg
-11,girl,26.99,Main,True,Main/girl-doll1.jpg
+11,BBQ Ribs,26.99,Main,True,Main/BBQ_Ribs.jpg
 12,Vegetable Lasagna,16.99,Main,True,Main/Vegetable_Lasagna.jpg
-13,Beef Burger,15.99,Main,True,Main/Beef_Burger.jpg
+13,Beef Burger Super Spicy,15.99,Dessert,True,Dessert/Beef_Burger.jpg
 14,Fish and Chips,17.99,Main,True,Main/Fish_and_Chips.jpg
 15,Chocolate Cake,8.99,Dessert,True,Dessert/chocolate_cake.jpg
 16,Cheesecake,7.99,Dessert,True,Dessert/Cheesecake.jpg
 17,Apple Pie,6.99,Dessert,True,Dessert/apple_pie.jpg
-18,Tiramisu,8.99,Dessert,True,Dessert/Tiramisu.jpg
 19,Ice Cream Sundae,5.99,Dessert,True,Dessert/Ice_Cream.jpg
 20,Crème Brûlée,7.99,Dessert,True,Dessert/Crème_Brûlée.jpg
-21,new food,11,Starter,True,squid-game-2.PNG
-22,new dish garlic,111,Main,True,Main/Crème_Brûlée.jpg
-23,new dish for test,11,Dessert,True,Main/Calamari_Rings.jpg
+21,Chicken Fried,12,Main,True,Main/chicken_fried.jpg

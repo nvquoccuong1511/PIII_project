@@ -12,31 +12,40 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <!-- Top row for manager button -->
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <!-- Main content part -->
         </Grid.RowDefinitions>
 
         <!-- Manager Login button -->
         <Border Grid.Row="0"
-        HorizontalAlignment="Right"
-        VerticalAlignment="Top"
-        Background="White"
-        CornerRadius="20"
-        Margin="20">
+             HorizontalAlignment="Right"
+             VerticalAlignment="Top"
+             Background="White"
+             CornerRadius="20"
+             Margin="20">
             <Button Content="Manager Login" 
-            Height="35"
-            Width="120"
-            Background="Transparent"
-            Foreground="Black"
-            BorderThickness="0"
-            FontSize="14"
-            FontWeight="SemiBold"
-            Click="btnOwner_Clicked"/>
+                 Height="35"
+                 Width="120"
+                 Background="Transparent"
+                 Foreground="Black"
+                 BorderThickness="0"
+                 FontSize="14"
+                 FontWeight="SemiBold"
+                 Click="btnOwner_Clicked"/>
         </Border>
 
-        <!-- layout -->
-        <Grid Grid.Row="1" Margin="50">
+        <!-- Logo Area -->
+        <StackPanel Grid.Row="1" 
+                 HorizontalAlignment="Center" 
+                 Margin="0,20">
+            <Image Source="/Images/logo/600x600.png" 
+                Width="200" 
+                Height="150" 
+                Stretch="Uniform"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="2" Margin="50,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -45,31 +54,32 @@
 
             <!-- Title -->
             <TextBlock Grid.Row="0"
-                  Text="Get Food Delivery From Restaurants" 
-                  FontSize="36"
-                  FontWeight="Bold"
-                  HorizontalAlignment="Left"
-                  Margin="0,0,0,30"/>
+                    Text="Get Food Delivery From Restaurants" 
+                    FontSize="30"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Left"
+                    TextWrapping="Wrap"
+                    Margin="0,0,0,30"/>
 
             <!-- Input name -->
             <Border Grid.Row="1" 
-               Background="White" 
-               BorderBrush="#DDDDDD" 
-               BorderThickness="1" 
-               CornerRadius="25"
-               Margin="0,0,0,20">
+                 Background="White" 
+                 BorderBrush="#DDDDDD" 
+                 BorderThickness="1" 
+                 CornerRadius="25"
+                 Margin="0,0,0,20">
                 <Grid>
                     <TextBox x:Name="txtUsername"
-                        KeyDown="txtUsername_KeyDown"
-                        Padding="20"
-                        FontSize="18"
-                        BorderThickness="0"
-                        Background="Transparent"/>
+                          KeyDown="txtUsername_KeyDown"
+                          Padding="20"
+                          FontSize="18"
+                          BorderThickness="0"
+                          Background="Transparent"/>
                     <TextBlock IsHitTestVisible="False"
-                          Text="Enter your name"
-                          VerticalAlignment="Center"
-                          Margin="20,0,0,0"
-                          Foreground="Gray">
+                            Text="Enter your name"
+                            VerticalAlignment="Center"
+                            Margin="20,0,0,0"
+                            Foreground="Gray">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Visibility" Value="Collapsed"/>
@@ -86,15 +96,15 @@
 
             <!-- Go to Customer menu -->
             <Border Grid.Row="2" 
-               CornerRadius="25">
+                 CornerRadius="25">
                 <Button Content="Find Favourite Foods" 
-                   Click="btnCustomer_Clicked"
-                   Height="60"
-                   Background="#FF4500"
-                   Foreground="White"
-                   FontSize="20"
-                   FontWeight="Bold"
-                   BorderThickness="0"/>
+                     Click="btnCustomer_Clicked"
+                     Height="60"
+                     Background="#FF4500"
+                     Foreground="White"
+                     FontSize="20"
+                     FontWeight="Bold"
+                     BorderThickness="0"/>
             </Border>
         </Grid>
     </Grid>

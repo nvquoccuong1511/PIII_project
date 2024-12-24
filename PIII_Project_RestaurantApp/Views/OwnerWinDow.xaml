@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PIII_Project_RestaurantApp.Views"
         mc:Ignorable="d"
+        
         Title="Restaurant Management - Owner" 
         Width="900" Height="700"    
         MinWidth="700" MinHeight="650"
